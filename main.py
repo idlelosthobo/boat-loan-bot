@@ -1,16 +1,36 @@
-# This is a sample Python script.
+import asyncio
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from surrealdb.clients.http import HTTPClient
+
+sdb = HTTPClient(
+    'http://localhost:8000',
+    namespace="test",
+    database="test",
+    username="root",
+    password="root",
+)
+
+async def add_boat(name, price, max_speed):
+    response = await sdb.create_one(
+        'boat',
+        name,
+        {
+            'price': price,
+            'max_speed': max_speed,
+        }
+    )
+    print(response)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+async def get_all_boats():
+    table = 'boat'
+    response = await sdb.select_all(table)
+    print(response)
 
 
-# Press the green button in the gutter to run the script.
+async def run_all():
+    await add_boat('', 55000.00, 300)
+    await get_all_boats()
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    asyncio.run(run_all())
