@@ -1,6 +1,6 @@
 import asyncio
 
-from surrealdb.clients.http import HTTPClient
+from blb.surrealdb.clients import HTTPClient
 
 sdb = HTTPClient(
     'http://localhost:8000',
@@ -9,6 +9,7 @@ sdb = HTTPClient(
     username="root",
     password="root",
 )
+
 
 async def add_boat(name, price, max_speed):
     response = await sdb.create_one(
