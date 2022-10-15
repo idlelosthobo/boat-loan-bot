@@ -1,0 +1,2 @@
+class BoatLoanBotException(Exception):
+    pass

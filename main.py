@@ -1,6 +1,6 @@
 import asyncio
 
-from blb.surrealdb.clients import HTTPClient
+from boat_loan_bot.surrealdb.clients import HTTPClient
 
 sdb = HTTPClient(
     'http://localhost:8000',
