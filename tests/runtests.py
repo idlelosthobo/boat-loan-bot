@@ -1,4 +1,5 @@
-from blb import BoatLoanBot
+from blb import blb
 
-blb = BoatLoanBot()
+blb.set_scenario('phone_call')
 
+print('Sup')
