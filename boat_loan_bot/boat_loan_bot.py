@@ -13,7 +13,10 @@ class BoatLoanBot:
             self.scenario.start()
             self.scenario.evaluate()
         else:
-             raise BoatLoanBotException(f'"{type}" is not valid choice')
+            raise BoatLoanBotException(f'"{type}" is not valid choice')
 
     def end_scenario(self):
         self.scenario.end()
+
+    def run_scenario(self):
+        pass

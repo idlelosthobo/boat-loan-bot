@@ -29,4 +29,4 @@ class PhoneCallScenario(Scenario):
         logging.debug('Phone Call Scenario: Started')
         from .actor import CallerActor, ReceptionActor
         self.actor_list.append(ReceptionActor(is_bot=True, is_known=True, name=self.boat_loan_bot.name))
-        self.actor_list.append(ReceptionActor(is_bot=False, is_known=False))
+        self.actor_list.append(CallerActor(is_bot=False, is_known=False))
